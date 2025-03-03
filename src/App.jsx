@@ -7,19 +7,20 @@ import Header from './components/Header';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 
+
 export default function App() {
 
-  
+
 
   return (
 
     <>
-    <Navbar />
-    <Header />
-    <HomePage />
-    <ProductCard />
-    <Footer />
-    
+      <Navbar />
+      <Header />
+      <HomePage />
+      <ProductCard />
+      <Footer />
+
 
     </>
 
