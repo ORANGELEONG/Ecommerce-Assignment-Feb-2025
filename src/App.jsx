@@ -6,6 +6,9 @@ import Navbar from './components/Navbar';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import Footer from './components/Footer';
+import {Route, Switch} from 'wouter';
+import ProductsPage from './components/ProductsPage';
+
 
 
 export default function App() {
@@ -15,12 +18,20 @@ export default function App() {
   return (
 
     <>
+
+    {/* Self Documenting code */}
       <Navbar />
       <Header />
       <HomePage />
       <ProductCard />
       <Footer />
 
+    <Switch>
+
+      <Route path="/" component={HomePage} />
+      <Route path="/products" component={ProductsPage}/>
+
+    </Switch>
 
     </>
 

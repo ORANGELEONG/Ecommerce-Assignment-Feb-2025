@@ -8,7 +8,7 @@ export default function Navbar() {
     const showNavBarOrNot = () => {
         if (showNavBar) {
             return "show"
-        
+
         } else {
             return "";
         }
@@ -19,7 +19,8 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
                 <a className="navbar-brand" href="#">OrangE-Shop</a>
-                <button
+                <button  
+                
                     className="navbar-toggler"
                     type="button"
                     aria-controls="navbarNav"
