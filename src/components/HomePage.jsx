@@ -1,5 +1,10 @@
+import ProductCard from "./ProductCard";
+
+
+
 export default function HomePage() {
   return (
+
 
     <main className="container my-5">
       <h2 className="text-center mb-4">Featured Products</h2>
@@ -28,7 +33,7 @@ export default function HomePage() {
           />
         </div>
         <div className="col-md-3 mb-4">
-          <ProductName
+          <ProductCard
             imageUrl="https://picsum.photos/id/96/300/200"
             productName="Product 4"
             price={888}
