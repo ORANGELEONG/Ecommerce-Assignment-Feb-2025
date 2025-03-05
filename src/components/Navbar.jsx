@@ -15,6 +15,16 @@ export default function Navbar() {
         }
     }
 
+    const showActive = (url) => {
+        if (location === url) {
+            return "active";
+        }
+        return "";
+        }
+    
+
+
+    const [location] = useLocation();
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,13 +53,13 @@ export default function Navbar() {
                 <div className={`collapse navbar-collapse ${showNavBarOrNot()}`} id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" href="/">Home</Link>
+                            <Link className={`nav-link ${location === '/' ? 'active' : ''}`} aria-current="page" href="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="/Products">Products</Link>
+                            <Link className={`nav-link ${showActive("/products")}`} href="/Products">Products</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" href="#">About</Link>
+                            <Link className={`nav-link ${location === "/register" ? "active" :""}`} href="/register">Register</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" href="#">Contact</Link>

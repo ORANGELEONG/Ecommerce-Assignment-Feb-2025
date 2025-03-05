@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import Footer from './components/Footer';
 import {Route, Switch} from 'wouter';
 import ProductsPage from './components/ProductsPage';
+import RegisterPage from './components/RegisterPage';
 
 
 
@@ -30,6 +31,7 @@ export default function App() {
 
       <Route path="/" component={HomePage} />
       <Route path="/products" component={ProductsPage}/>
+      <Route path="/register" component={RegisterPage}/>
 
     </Switch>
 
