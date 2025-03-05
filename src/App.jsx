@@ -22,7 +22,7 @@ export default function App() {
     {/* Self Documenting code */}
       <Navbar />
       <Header />
-      <HomePage />
+      {/* <HomePage /> */}
       <ProductCard />
       <Footer />
 
