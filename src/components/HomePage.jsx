@@ -1,46 +1,73 @@
+import axios from "axios";
 import ProductCard from "./ProductCard";
+import { useEffect, useState } from "react";
 
 
 
 export default function HomePage() {
+
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+
+
+
+  const fetchFeaturedProducts = async () => {
+    const response = await axios.get('featured.json');
+
+    setFeaturedProducts(response.data);
+  }
+
+  useEffect(() => {
+    fetchFeaturedProducts();
+
+  }, []);
+
+
+  const renderFeaturedProducts = () => {
+    const jsx = [];
+
+    for (let p of featuredProducts) {
+      jsx.push(<div className="col-md-3 mb-4">
+        <ProductCard
+        key={p.id}
+          imageUrl={p.image}
+          productName={p.name}
+          price={p.price}
+        />
+      </div>)
+    }
+
+    return jsx;
+
+
+  }
+
+
+
   return (
 
 
     <main className="container my-5">
+     
       <h2 className="text-center mb-4">Featured Products</h2>
       <div className="row">
-        <div className="col-md-3 mb-4">
-          <ProductCard
-            imageUrl="https://picsum.photos/id/20/300/200"
-            productName="Product 1"
-            price={100}
-          />
-        </div>
-        <div className="col-md-3 mb-4">
-          <ProductCard
-            imageUrl="https://picsum.photos/id/1/300/200"
-            productName="Product 2"
-            price={200}
+        {/* {renderFeaturedProducts()} */}
 
-          />
-        </div>
-        <div className="col-md-3 mb-4">
-          <ProductCard
-            imageUrl="https://picsum.photos/id/26/300/200"
-            productName="Product 3"
-            price={399}
+        {
+          featuredProducts.map(p => (
+            <div className="col-md-3 mb-4">
+              <ProductCard
+              key={p.id}
+                imageUrl={p.image}
+                productName={p.name}
+                price={p.price}
+              />
+            </div>
+          ))
 
-          />
-        </div>
-        <div className="col-md-3 mb-4">
-          <ProductCard
-            imageUrl="https://picsum.photos/id/96/300/200"
-            productName="Product 4"
-            price={888}
+        }
 
 
-          />
-        </div>
       </div>
     </main>
 

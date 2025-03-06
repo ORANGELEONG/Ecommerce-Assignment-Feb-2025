@@ -20,8 +20,8 @@ export default function Navbar() {
             return "active";
         }
         return "";
-        }
-    
+    }
+
 
 
     const [location] = useLocation();
@@ -30,8 +30,8 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
                 <a className="navbar-brand" href="#">OrangE-Shop</a>
-                <button  
-                
+                <button
+
                     className="navbar-toggler"
                     type="button"
                     aria-controls="navbarNav"
@@ -59,7 +59,7 @@ export default function Navbar() {
                             <Link className={`nav-link ${showActive("/products")}`} href="/Products">Products</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className={`nav-link ${location === "/register" ? "active" :""}`} href="/register">Register</Link>
+                            <Link className={`nav-link ${location === "/register" ? "active" : ""}`} href="/register">Register</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" href="#">Contact</Link>
