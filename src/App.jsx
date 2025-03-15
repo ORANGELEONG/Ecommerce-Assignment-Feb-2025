@@ -24,9 +24,7 @@ export default function App() {
       <Navbar />
       <Header />
       {/* <HomePage /> */}
-      <ProductCard />
-      <Footer />
-
+      {/* <ProductCard /> */}
       <Switch>
 
         <Route path="/" component={HomePage} />
@@ -34,6 +32,8 @@ export default function App() {
         <Route path="/register" component={RegisterPage} />
 
       </Switch>
+      <Footer />
+
 
     </>
 
