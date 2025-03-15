@@ -1,6 +1,8 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { useLocation } from 'wouter';
+
 
 const validationSchema = Yup.object({
     name: Yup.string().required('Name is required'),
@@ -23,10 +25,11 @@ function RegisterPage() {
         marketingPreferences: [],
         country: ''
     };
-
+    const [, setLocation] = useLocation();
     const handleSubmit = (values, formikHelpers) => {
         // Here you would typically make an API call to register the user
         console.log('Form values:', values);
+        setLocation("/");
         formikHelpers.setSubmitting(false);
     };
 
