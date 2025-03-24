@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import { useLocation } from 'wouter';
+import { useFlashMessage } from './FlashMessageStore';
 
 
 const validationSchema = Yup.object({
@@ -26,13 +27,21 @@ function RegisterPage() {
         country: ''
     };
     const [, setLocation] = useLocation();
-    const handleSubmit = (values, formikHelpers) => {
-        // Here you would typically make an API call to register the user
-        console.log('Form values:', values);
-        setLocation("/");
-        formikHelpers.setSubmitting(false);
-    };
+    const { showMessage } = useFlashMessage();
 
+    const handleSubmit = async (values, formikHelpers) => {
+      try {
+        // const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/register`, values);
+        console.log('Registration successful:', response.data);
+        showMessage('Registration successful!', 'success');
+      } catch (error) {
+        console.error('Registration failed:', error.response?.data || error.message);
+        showMessage('Registration failed. Please try again.', 'error');
+      } finally {
+        formikHelpers.setSubmitting(false);
+        setLocation('/');
+      }
+    };
     return (
         <div className="container mt-5">
             <h1>Register</h1>
