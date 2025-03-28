@@ -12,6 +12,8 @@ import { Route, Switch } from 'wouter';
 import ProductsPage from './components/ProductsPage';
 import RegisterPage from './components/RegisterPage';
 import { useFlashMessage } from './components/FlashMessageStore';
+import UserLogin from './components/UserLogin.jsx';
+import Profile from './components/Profile.jsx';
 
 
 
@@ -55,6 +57,9 @@ export default function App() {
         <Route path="/" component={HomePage} />
         <Route path="/products" component={ProductsPage} />
         <Route path="/register" component={RegisterPage} />
+        <Route path="/login" component={UserLogin} />
+        <Route path="/profile" component={Profile} />
+
 
       </Switch>
       <Footer />

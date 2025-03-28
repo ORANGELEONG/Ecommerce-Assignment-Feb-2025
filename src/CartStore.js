@@ -1,5 +1,6 @@
 import { atom, useAtom } from 'jotai';
 import { produce } from 'immer';
+// import immutable from 'seamless-immutable';
 
 // Define the initial state of the cart as a regular array
 const initialCart = [

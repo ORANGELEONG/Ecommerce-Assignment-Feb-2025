@@ -27,22 +27,17 @@ export default function ProductsPage() {
     }
 
     useEffect(() => {
-        // create a function to load in the products.json
         const fetchProducts = async () => {
-            try {
-
-                const response = await axios.get('/products.json');
-                setProducts(response.data);
-
-            } catch (e) {
-                console.error("Error fetching products", error);
-            }
-        }
-
+          try {
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`);
+            setProducts(response.data);
+          } catch (error) {
+            console.error('Error fetching products:', error);
+          }
+        };
+      
         fetchProducts();
-
-
-    }, [])
+      }, []);
 
     return (
         <div className="container mt-5">
